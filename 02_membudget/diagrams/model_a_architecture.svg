@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 910 262" width="910" height="262" role="img">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="910" height="262" rx="10" fill="#ffffff"/>
+<text x="40" y="28" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Model A — IMU gesture MLP</text>
+<text x="95.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">input</text>
+<rect x="40" y="128" width="110" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="95.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">(60,)</text>
+<text x="335.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">after FC1</text>
+<rect x="280" y="128" width="110" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="335.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">(48,)</text>
+<text x="575.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">after FC2</text>
+<rect x="520" y="128" width="110" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="575.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">(24,)</text>
+<text x="815.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">after FC3</text>
+<rect x="760" y="128" width="110" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="815.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">(6,)</text>
+<rect x="160.0" y="52" width="116" height="62" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="218.0" y="71" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#4c1d95">FC1</text>
+<text x="218.0" y="87" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4c1d95">60→48</text>
+<text x="218.0" y="103" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4c1d95">+ ReLU</text>
+<line x1="154" y1="163.0" x2="276" y2="163.0" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="400.0" y="52" width="116" height="62" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="458.0" y="71" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#4c1d95">FC2</text>
+<text x="458.0" y="87" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4c1d95">48→24</text>
+<text x="458.0" y="103" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4c1d95">+ ReLU</text>
+<line x1="394" y1="163.0" x2="516" y2="163.0" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="640.0" y="52" width="116" height="62" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="698.0" y="71" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#4c1d95">FC3</text>
+<text x="698.0" y="87" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4c1d95">24→6</text>
+<text x="698.0" y="103" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4c1d95">logits</text>
+<line x1="634" y1="163.0" x2="756" y2="163.0" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="40" y="226" width="16" height="16" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/><text x="62" y="239" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Fully connected</text>
+</svg>

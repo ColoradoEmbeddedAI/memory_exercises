@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1244 262" width="1244" height="262" role="img">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+<rect width="1244" height="262" rx="10" fill="#ffffff"/>
+<text x="40" y="28" font-family="Helvetica, Arial, sans-serif" font-size="18" font-weight="bold" fill="#0f172a">Model B — tiny CNN image classifier</text>
+<text x="82.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">input</text>
+<rect x="40" y="128" width="84" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="82.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">1×32×32</text>
+<text x="262.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">after Conv1</text>
+<rect x="220" y="128" width="84" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="262.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">8×32×32</text>
+<text x="442.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">after Pool1</text>
+<rect x="400" y="128" width="84" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="442.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">8×16×16</text>
+<text x="622.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">after Conv2</text>
+<rect x="580" y="128" width="84" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="622.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">16×16×16</text>
+<text x="802.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">after Pool2</text>
+<rect x="760" y="128" width="84" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="802.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">16×8×8</text>
+<text x="982.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">after GAP</text>
+<rect x="940" y="128" width="84" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="982.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">16×1×1</text>
+<text x="1162.0" y="120" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#475569">after FC</text>
+<rect x="1120" y="128" width="84" height="70" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+<text x="1162.0" y="168.0" text-anchor="middle" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14" fill="#0f172a">10</text>
+<rect x="130.0" y="52" width="90" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="175.0" y="71" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a">Conv1</text>
+<text x="175.0" y="87" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#1e3a8a">3×3, 1→8</text>
+<text x="175.0" y="103" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#1e3a8a">+ ReLU</text>
+<line x1="128" y1="163.0" x2="216" y2="163.0" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="310.0" y="52" width="90" height="62" rx="8" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="355.0" y="71" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#134e4a">MaxPool</text>
+<text x="355.0" y="87" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#134e4a">2×2</text>
+<line x1="308" y1="163.0" x2="396" y2="163.0" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="490.0" y="52" width="90" height="62" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+<text x="535.0" y="71" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a">Conv2</text>
+<text x="535.0" y="87" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#1e3a8a">3×3, 8→16</text>
+<text x="535.0" y="103" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#1e3a8a">+ ReLU</text>
+<line x1="488" y1="163.0" x2="576" y2="163.0" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="670.0" y="52" width="90" height="62" rx="8" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+<text x="715.0" y="71" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#134e4a">MaxPool</text>
+<text x="715.0" y="87" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#134e4a">2×2</text>
+<line x1="668" y1="163.0" x2="756" y2="163.0" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="850.0" y="52" width="90" height="62" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+<text x="895.0" y="71" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#78350f">Global</text>
+<text x="895.0" y="87" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#78350f">avg pool</text>
+<line x1="848" y1="163.0" x2="936" y2="163.0" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="1030.0" y="52" width="90" height="62" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+<text x="1075.0" y="71" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="14" font-weight="bold" fill="#4c1d95">FC</text>
+<text x="1075.0" y="87" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="12" font-weight="normal" fill="#4c1d95">16→10</text>
+<line x1="1028" y1="163.0" x2="1116" y2="163.0" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+<rect x="40" y="226" width="16" height="16" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><text x="62" y="239" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Convolution (+ReLU)</text>
+<rect x="232" y="226" width="16" height="16" rx="4" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/><text x="254" y="239" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Max pooling</text>
+<rect x="360" y="226" width="16" height="16" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/><text x="382" y="239" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Global average pool</text>
+<rect x="552" y="226" width="16" height="16" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/><text x="574" y="239" font-family="Helvetica, Arial, sans-serif" font-size="13" fill="#334155">Fully connected</text>
+</svg>

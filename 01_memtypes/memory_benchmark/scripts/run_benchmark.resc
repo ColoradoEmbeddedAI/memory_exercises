@@ -1,0 +1,26 @@
+# Boots memory_benchmark under Renode and bridges USART2 to a TCP socket so
+# an external terminal program can watch the output live, the same way you'd
+# watch real hardware over a USB-UART adapter.
+#
+# Usage:
+#   cd memory_benchmark
+#   renode --console scripts/run_benchmark.resc
+# then, in another terminal:
+#   nc localhost 3456
+#   (or: picocom -b 115200 socket://localhost:3456, or any TCP-capable
+#    serial terminal)
+#
+# For automated/headless capture without a second terminal, use
+# tests/test_benchmark.robot (`renode-test tests/test_benchmark.robot`)
+# instead -- it waits for and prints each report line directly.
+
+mach create
+
+machine LoadPlatformDescription @platforms/stm32f4_discovery_full.repl
+
+sysbus LoadELF @build/firmware.elf
+
+emulation CreateServerSocketTerminal 3456 "uart_term" false
+connector Connect sysbus.usart2 uart_term
+
+start

@@ -1,0 +1,8 @@
+build/
+
+# renode-test artifacts
+snapshots/
+logs/
+robot_output.xml
+log.html
+report.html

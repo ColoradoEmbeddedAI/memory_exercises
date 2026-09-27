@@ -1,0 +1,30 @@
+// Copied from ../../01_memtypes/memory_benchmark/platforms/ (comments
+// adjusted). Used by ../scripts/renode_run.sh -- see ../README.md,
+// "Running under Renode".
+
+using "platforms/boards/stm32f4_discovery.repl"
+
+// Stock stm32f4.repl has no DWT peripheral at all -- reads of DWT->CYCCNT
+// return 0 and never advance. Renode does ship a real Miscellaneous.DWT
+// model (used by several other Cortex-M boards' platform files, e.g.
+// platforms/cpus/sam4s.repl, max32652.repl) that isn't wired in here by
+// default. Added so DWT_Init()/DWT->CYCCNT in src/main.c has something
+// real behind it.
+dwt: Miscellaneous.DWT @ sysbus 0xE0001000
+    frequency: 168000000
+
+// Real STM32F407 has 64KB of CPU-only CCM RAM at 0x10000000; missing from
+// Renode's stock stm32f4.repl entirely. This lab leaves it empty, but the
+// linker script still defines the region.
+ccmram: Memory.MappedMemory @ sysbus 0x10000000
+    size: 0x10000
+
+// Stock stm32f4.repl models sram as 256KB and flash as 2MB (likely copied
+// from a bigger STM32F4 variant). The real STM32F407VG has 128KB of
+// contiguous main SRAM (112KB SRAM1 + 16KB SRAM2, @ 0x20000000) and 1MB of
+// flash (@ 0x08000000) -- matches this project's stm32f407.ld exactly.
+sram:
+    size: 0x20000
+
+flash:
+    size: 0x100000

@@ -1,0 +1,45 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/arm-none-eabi.cmake"
+      }
+    },
+    {
+      "name": "f32-hard",
+      "inherits": "base",
+      "displayName": "float32 dot product, hard-float ABI (hardware FPU)",
+      "cacheVariables": { "FLOAT_ABI": "hard", "KERNEL": "f32" }
+    },
+    {
+      "name": "f32-soft",
+      "inherits": "base",
+      "displayName": "float32 dot product, soft-float ABI (software FP emulation)",
+      "cacheVariables": { "FLOAT_ABI": "soft", "KERNEL": "f32" }
+    },
+    {
+      "name": "q15-scalar",
+      "inherits": "base",
+      "displayName": "q15 (int16) dot product, scalar",
+      "cacheVariables": { "FLOAT_ABI": "hard", "KERNEL": "q15_scalar" }
+    },
+    {
+      "name": "q15-simd",
+      "inherits": "base",
+      "displayName": "q15 (int16) dot product, SIMD (SMLAD)",
+      "cacheVariables": { "FLOAT_ABI": "hard", "KERNEL": "q15_simd" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "f32-hard",   "configurePreset": "f32-hard" },
+    { "name": "f32-soft",   "configurePreset": "f32-soft" },
+    { "name": "q15-scalar", "configurePreset": "q15-scalar" },
+    { "name": "q15-simd",   "configurePreset": "q15-simd" }
+  ]
+}

@@ -22,7 +22,7 @@ You'll find a table with four columns: **Name**, **Origin**, **Length**, **Attri
 | RAM    |  |  |
 | CCMRAM |  |  |
 
-Confirm these match the STM32F407VG datasheet values from the lecture (Slide 8). (Slide 8 lists five regions, not three — see if you can figure out why before asking.)
+Confirm these match the STM32F407VG datasheet values covered in the lecture. (The lecture's datasheet table lists five regions, not three — see if you can figure out why before asking.)
 
 ## 2. Find the "Linker script and memory map" section
 

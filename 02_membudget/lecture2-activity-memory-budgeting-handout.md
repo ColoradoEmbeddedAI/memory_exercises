@@ -93,7 +93,7 @@ This exports the actual model, runs it through `to_edge()` and `to_executorch()`
 
 Real planner total: ______________________ bytes
 
-Compare it to your Step 3 peak. If the real number is smaller, why might that be, given what Slide 15 said about the planner not being limited to a single input/output pair? If it's larger, what might account for the difference (padding/alignment, a tensor you didn't count, ReLU not being fused the way we assumed)?
+Compare it to your Step 3 peak. If the real number is smaller, why might that be, given what the lecture said about the planner not being limited to a single input/output pair? If it's larger, what might account for the difference (padding/alignment, a tensor you didn't count, ReLU not being fused the way we assumed)?
 
 Your explanation:
 

@@ -12,13 +12,11 @@
  *   - q15 (int16) dot product, scalar (preset q15-scalar)
  *   - q15 dot product using SMLAD, two MACs per instruction (q15-simd)
  *
- * This is a bare-metal, register-level port of the project's original
- * HAL-based sketch (../cortex_m_perf_lab.c): like every other project in
- * this repo, there is no HAL/CMSIS here, only direct register access via
- * stm32f407.h. Clock/UART/DWT plumbing is copied from
- * ../../04_memmovement/dma_bandwidth_lab/src/main.c (itself from
- * ../../01_memtypes/memory_benchmark). See README.md ("What changed from
- * the HAL sketch") for the call-by-call mapping.
+ * Like every other project in this repo, there is no HAL/CMSIS here, only
+ * direct register access via stm32f407.h. Clock/UART/DWT plumbing is
+ * copied from ../../04_memmovement/dma_bandwidth_lab/src/main.c (itself
+ * from ../../01_memtypes/memory_benchmark). See README.md
+ * ("Implementation notes") for how the HAL/CMSIS equivalents map.
  *
  * No printf, and -- deliberately -- no float arithmetic anywhere in the
  * reporting path: report() below formats MACs/cycle etc. with integer

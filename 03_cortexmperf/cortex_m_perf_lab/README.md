@@ -236,9 +236,9 @@ measurement covers the same 512,000 MACs.
 
 At most 8 KB of SRAM, with no CCM RAM or DMA. The operands sit in
 zero-wait-state SRAM on purpose. This lab measures the compute side
-(Topic 3); the effect of operands arriving slowly is Topic 4's subject.
+(this lecture); the effect of operands arriving slowly is a future lecture's subject.
 Instruction fetch still comes from Flash through the ART Accelerator
-(Topic 1). The loops are small enough to stay in its cache after the
+(covered previously). The loops are small enough to stay in its cache after the
 first iteration.
 
 ## Troubleshooting

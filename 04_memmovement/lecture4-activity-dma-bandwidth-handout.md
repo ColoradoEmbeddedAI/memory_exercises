@@ -71,7 +71,7 @@ Record the five lines the firmware prints for Part 1:
 
 ### Part 2 results
 
-Tuning check first: compare `Background DMA duration (alone)` against `SRAM workload, DMA idle`, printed just after it — the background transfer should clearly outlast the workload. If you see a `[warning] background DMA finished before the workload did`, increase `N_BG` (or decrease `N_WORKLOAD_REPS`) in `dma_bandwidth_lab/src/main.c` and rebuild. Increasing `N_BG` uses more SRAM for `bg_src`/`bg_dst` — if you run out, use Topic 1's `.map`-file technique (`build/firmware.map`) to check your actual SRAM budget and back off `N_WORKLOAD_REPS` instead.
+Tuning check first: compare `Background DMA duration (alone)` against `SRAM workload, DMA idle`, printed just after it — the background transfer should clearly outlast the workload. If you see a `[warning] background DMA finished before the workload did`, increase `N_BG` (or decrease `N_WORKLOAD_REPS`) in `dma_bandwidth_lab/src/main.c` and rebuild. Increasing `N_BG` uses more SRAM for `bg_src`/`bg_dst` — if you run out, use the `.map`-file technique from earlier (`build/firmware.map`) to check your actual SRAM budget and back off `N_WORKLOAD_REPS` instead.
 
 Once the tuning checks out, record the four measurements:
 
@@ -86,7 +86,7 @@ Once the tuning checks out, record the four measurements:
 
 1. How close was the overlapped result to `max(Copy alone, Compute alone)`? If it's somewhat higher than that theoretical floor, what real-world costs does the simple `max()` model leave out (hint: look at what `dma_overlap_copy_and_compute()` does before and after the compute loop, in `dma_bandwidth_lab/src/main.c`)?
 2. At what relative sizes of `N_XFER` and `N_COMPUTE`/`N_COMPUTE_REPS` (both defined near the top of `dma_bandwidth_lab/src/main.c`) would overlap provide the *least* benefit in absolute cycles? Which one dominates in that case? Given the numbers you actually measured, which regime are the current defaults in?
-3. Where in an actual streaming inference pipeline (Topic 4's double-buffering pattern, covered in lecture) would you place the "compute" work and the "transfer" work to get this benefit for real?
+3. Where in an actual streaming inference pipeline (the double-buffering pattern covered in lecture) would you place the "compute" work and the "transfer" work to get this benefit for real?
 4. Compare CCM's "DMA active" number to CCM's own "DMA idle" number, and separately to SRAM's "DMA active" number — which one does it resemble, and why does that make sense given CCM RAM's bus topology? If CCM's contention penalty came out small but nonzero rather than exactly zero, what could explain a nonzero result even for a CPU-only memory (hint: think about what else is happening on the AHB matrix besides the specific transfer you configured, and about measurement noise/interrupt jitter even with interrupts disabled around the timed region).
 5. Compare the SRAM contention penalty here to the magnitude of the DMA overlap benefit you found in Part 1. Under what system design would the Part 1 benefit and the Part 2 penalty be in direct tension — i.e., using DMA to overlap data movement with compute is exactly what creates the contention risk from Part 2. How would you resolve that tension in a real design?
 6. Given today's results, revise (or confirm) the lecture's "design implication": which buffers in a real inference pipeline belong in CCM RAM, and which ones *can't* go there because they need DMA to reach them at all?

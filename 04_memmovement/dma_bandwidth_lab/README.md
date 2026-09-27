@@ -45,7 +45,7 @@ CMSIS, `cmake --preset stm32` (same layout as
 - Clock: HSE → PLL → **168 MHz**, identical to `memory_benchmark`, for
   the same reason (this course's simpler 16 MHz HSI-only demos aren't
   representative of a real deployment clock, and this activity's cycle
-  counts should be comparable to Topic 1's benchmark numbers).
+  counts should be comparable to the earlier memory-benchmark numbers).
 
 ## A bug this port found by actually running on hardware
 
@@ -154,7 +154,7 @@ down: the background DMA's own throughput here is only modestly higher
 than the CPU's read-modify-write loop, so outlasting a *long* CPU
 workload would need a *very* large `N_BG` — bigger than this chip's SRAM
 allows). If you resize any buffer and the link fails, check
-`build/firmware.map` (Topic 1's `.map`-file technique).
+`build/firmware.map` (the `.map`-file technique from earlier).
 
 ## Not covered here: Renode
 
@@ -166,5 +166,5 @@ DMA regardless of memory region, which is worse than not running it:
 real hardware (or at minimum a cycle-accurate bus model this course
 doesn't have access to) is the only way to answer this activity's
 question. See `memory_benchmark/README.md`'s "Running under Renode?"
-section for the same argument made in more detail for Topic 1's simpler
+section for the same argument made in more detail for the earlier, simpler
 per-region latency question.

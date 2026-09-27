@@ -346,7 +346,7 @@ warning at the bottom before running it.
   cells only go one direction when programmed (1→0). To write new data
   you must first **erase** the whole sector (resets it to all `0xFF`),
   *then* **program** the words you want — this is the asymmetric
-  read/write cost from Slide 6 of the lecture, made concrete.
+  read/write cost from the lecture, made concrete.
 - **Both operations are asynchronous.** The CPU sets a bit and then has
   to poll `FLASH_SR`'s `BSY` bit until the Flash interface finishes —
   unlike an SRAM/CCM RAM store, which completes in the same cycle it's

@@ -1,0 +1,19 @@
+# Build output (CMake + Ninja), wherever a project subdirectory has one
+build/
+**/build/
+
+# Stray build products, if ever generated outside build/
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+
+# CMake local overrides (machine-specific, not meant to be shared)
+CMakeUserPresets.json
+
+# Editor / OS cruft
+*.swp
+*~
+.DS_Store
+Thumbs.db

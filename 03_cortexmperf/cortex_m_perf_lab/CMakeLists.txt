@@ -51,12 +51,18 @@ target_link_options(firmware.elf PRIVATE
     -Wl,-Map=${CMAKE_BINARY_DIR}/firmware.map,--cref
 )
 
+# Use the binutils that sit next to the compiler found by the toolchain file
+# (CMake sets CMAKE_OBJCOPY/CMAKE_OBJDUMP from it) rather than whatever is on
+# PATH -- on macOS the Arm toolchain often isn't on PATH at all.
+get_filename_component(ARM_TOOLCHAIN_BIN "${CMAKE_C_COMPILER}" DIRECTORY)
+find_program(ARM_SIZE arm-none-eabi-size HINTS "${ARM_TOOLCHAIN_BIN}" REQUIRED)
+
 add_custom_command(TARGET firmware.elf POST_BUILD
-    COMMAND arm-none-eabi-objcopy -O binary firmware.elf firmware.bin
+    COMMAND ${CMAKE_OBJCOPY} -O binary firmware.elf firmware.bin
     COMMENT "Generating firmware.bin"
 )
 add_custom_command(TARGET firmware.elf POST_BUILD
-    COMMAND arm-none-eabi-size firmware.elf
+    COMMAND ${ARM_SIZE} firmware.elf
     COMMENT "Firmware size (KERNEL=${KERNEL}, FLOAT_ABI=${FLOAT_ABI}):"
 )
 
@@ -72,7 +78,7 @@ add_custom_target(flash
 )
 
 add_custom_target(disasm
-    COMMAND arm-none-eabi-objdump -d -S ${CMAKE_BINARY_DIR}/firmware.elf
+    COMMAND ${CMAKE_OBJDUMP} -d -S ${CMAKE_BINARY_DIR}/firmware.elf
     DEPENDS firmware.elf
     COMMENT "Disassembly:"
     USES_TERMINAL
@@ -81,7 +87,7 @@ add_custom_target(disasm
 # Just this build's timed kernel (bench_dot_<KERNEL>) -- its inner loop is
 # the code the lab's cycle counts describe.
 add_custom_target(disasm-kernel
-    COMMAND arm-none-eabi-objdump -d --no-show-raw-insn
+    COMMAND ${CMAKE_OBJDUMP} -d --no-show-raw-insn
         --disassemble=bench_dot_${KERNEL} ${CMAKE_BINARY_DIR}/firmware.elf
     DEPENDS firmware.elf
     COMMENT "Kernel disassembly (KERNEL=${KERNEL}, FLOAT_ABI=${FLOAT_ABI}):"

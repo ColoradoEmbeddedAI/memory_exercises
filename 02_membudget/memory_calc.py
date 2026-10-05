@@ -4,8 +4,8 @@ memory_calc.py
 Embedded AI course — Memory Budgeting for Neural Nets, Activity 2
 Framework-free self-check tool: NO PyTorch/ExecuTorch dependency required.
 
-This implements exactly the simplified reuse model taught in lecture
-(Slide 10): for a purely sequential chain of ops, peak activation memory
+This implements exactly the simplified reuse model taught in lecture:
+for a purely sequential chain of ops, peak activation memory
 is the max, over all ops, of (input tensor bytes + output tensor bytes).
 Activation functions (ReLU etc.) are treated as folded into the
 preceding op's output, matching how we did the by-hand calculation on

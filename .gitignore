@@ -15,3 +15,27 @@ model_b_memory_profile.json
 05_pruning/pruning_lab/pte/
 05_pruning/pruning_lab/results/
 05_pruning/pruning_lab/python/__pycache__/
+
+# 06_quantization/quantization_lab: same pattern as pruning_lab.
+# checkpoints/ is tracked (provided to students). figures/ generates the
+# lecture's diagrams and is teacher-only (it lives in memory_exercises_private).
+06_quantization/quantization_lab/data/
+06_quantization/quantization_lab/build/
+06_quantization/quantization_lab/generated/
+06_quantization/quantization_lab/pte/
+06_quantization/quantization_lab/results/
+06_quantization/quantization_lab/python/__pycache__/
+06_quantization/quantization_lab/figures/
+
+# 07_knowledgedistallation/distillation_lab: same pattern. The provided
+# checkpoints (teacher_lenet300100.pt, b2_variant_{A,C}.pt) are tracked; the
+# student_3*.pt files are written by python/part3_low_data.py. figures/ is
+# teacher-only, as in 06.
+07_knowledgedistallation/distillation_lab/data/
+07_knowledgedistallation/distillation_lab/build/
+07_knowledgedistallation/distillation_lab/generated/
+07_knowledgedistallation/distillation_lab/pte/
+07_knowledgedistallation/distillation_lab/results/
+07_knowledgedistallation/distillation_lab/checkpoints/student_3*.pt
+07_knowledgedistallation/distillation_lab/python/__pycache__/
+07_knowledgedistallation/distillation_lab/figures/

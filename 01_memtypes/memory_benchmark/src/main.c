@@ -21,7 +21,7 @@
  * HSI-only config most of this repo's simpler demos use. At 16 MHz the
  * STM32F407 needs zero flash wait states, which would make Flash reads
  * look identical to SRAM and defeat the point of this activity (see
- * Slide 14 in the lecture deck on the ART Accelerator). At 168 MHz,
+ * the lecture's discussion of the ART Accelerator). At 168 MHz,
  * Flash needs 5 wait states (RM0090 Table 10) and the ART Accelerator's
  * prefetch/cache actually has something to hide -- that's what Section 6,
  * Question 3's sequential-vs-strided extension is probing.
